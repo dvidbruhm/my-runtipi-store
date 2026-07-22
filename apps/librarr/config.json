@@ -1,0 +1,32 @@
+{
+  "name": "Librarr",
+  "id": "librarr",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8531,
+  "tipi_version": 1,
+  "version": "1.1.3",
+  "categories": ["books", "media"],
+  "short_desc": "Self-hosted book, audiobook, and manga search & download manager — the *arr for books.",
+  "description": "Self-hosted book, audiobook, and manga search and download manager. Searches multiple indexers in parallel with confidence scoring, auto-imports to Calibre, Audiobookshelf, Kavita, or Komga. Torznab API for Prowlarr integration, OPDS feed, request/approval workflow, Goodreads and StoryGraph CSV import, quality profiles, author monitoring, and series auto-complete. Single Go binary with SQLite — no external database needed, ~14MB RAM idle.",
+  "author": "JeremiahM37",
+  "source": "https://github.com/JeremiahM37/librarr",
+  "supported_architectures": ["arm64", "amd64"],
+  "min_tipi_version": "4.5.0",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "Admin password (used to log in)",
+      "required": true,
+      "env_variable": "LIBRARR_AUTH_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "API Key (for Torznab/Prowlarr integration — find in app env vars after install)",
+      "min": 32,
+      "required": true,
+      "env_variable": "LIBRARR_API_KEY"
+    }
+  ]
+}
