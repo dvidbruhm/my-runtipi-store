@@ -1,0 +1,40 @@
+{
+  "name": "BookOrbit",
+  "id": "bookorbit",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8530,
+  "tipi_version": 1,
+  "version": "2.3.0",
+  "categories": ["books", "media"],
+  "short_desc": "Self-hosted ebook, audiobook, and comic library with built-in readers and Kobo/KOReader sync.",
+  "description": "A self-hosted library and reading platform for ebooks, audiobooks, and comics. Built-in web readers for EPUB, MOBI, AZW3, PDF, CBZ, CBR, and audiobooks (M4B, MP3). Three-way reading sync between Kobo, KOReader, and the web reader. Rich metadata from 9 providers (Google Books, Amazon, Goodreads, Open Library, Audible, ComicVine, and more), multi-user with OIDC/SSO, OPDS catalog, reading analytics and widgets, Send-to-Kindle, and a Book Dock for automated ingestion.",
+  "author": "bookorbit",
+  "source": "https://github.com/bookorbit/bookorbit",
+  "supported_architectures": ["arm64", "amd64"],
+  "min_tipi_version": "4.5.0",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Database password (PostgreSQL)",
+      "min": 24,
+      "required": true,
+      "env_variable": "BOOKORBIT_POSTGRES_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "JWT Secret (signs login tokens)",
+      "min": 32,
+      "required": true,
+      "env_variable": "BOOKORBIT_JWT_SECRET"
+    },
+    {
+      "type": "random",
+      "label": "Setup Bootstrap Token (use this to complete the first-run setup wizard)",
+      "min": 16,
+      "required": true,
+      "env_variable": "BOOKORBIT_SETUP_TOKEN"
+    }
+  ]
+}

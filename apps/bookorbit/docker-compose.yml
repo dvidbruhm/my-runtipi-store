@@ -1,0 +1,48 @@
+services:
+  bookorbit:
+    image: ghcr.io/bookorbit/bookorbit:latest
+    restart: unless-stopped
+    init: true
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=bookorbit
+      - POSTGRES_PASSWORD=${BOOKORBIT_POSTGRES_PASSWORD}
+      - POSTGRES_DB=bookorbit
+      - JWT_SECRET=${BOOKORBIT_JWT_SECRET}
+      - SETUP_BOOTSTRAP_TOKEN=${BOOKORBIT_SETUP_TOKEN}
+      - APP_URL=http://localhost:8530
+      - LIBRARY_BROWSE_ROOT=/books
+      - PUID=1000
+      - PGID=1000
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ${APP_DATA_DIR}/books:/books
+      - ${APP_DATA_DIR}/data:/data
+    x-runtipi:
+      is_main: true
+      internal_port: 3000
+
+  postgres:
+    image: pgvector/pgvector:pg18
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=bookorbit
+      - POSTGRES_PASSWORD=${BOOKORBIT_POSTGRES_PASSWORD}
+      - POSTGRES_DB=bookorbit
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - ${APP_DATA_DIR}/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bookorbit -d bookorbit"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
+x-runtipi:
+  schema_version: 2
