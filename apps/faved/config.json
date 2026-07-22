@@ -1,0 +1,18 @@
+{
+  "name": "Faved",
+  "id": "faved",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8532,
+  "tipi_version": 1,
+  "version": "2.9.1",
+  "categories": ["utilities"],
+  "short_desc": "Self-hosted bookmark manager with customisable nested tags, auto-fetched metadata, and PWA support.",
+  "description": "A private, open-source bookmark manager built for large collections and advanced use cases. Organize bookmarks with customisable nested tags, automatic title/description/preview fetching, duplicate detection, bulk actions, and flexible layouts (card/list/table). Installable as a PWA. Import from Chrome, Safari, Firefox, Edge, Raindrop.io, and Pocket. Chrome extension and bookmarklet available. All data stored locally in SQLite — no external dependencies.",
+  "author": "denho",
+  "source": "https://github.com/denho/faved",
+  "supported_architectures": ["arm64", "amd64"],
+  "min_tipi_version": "4.5.0",
+  "form_fields": []
+}

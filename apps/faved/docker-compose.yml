@@ -1,0 +1,12 @@
+services:
+  faved:
+    image: denho/faved:latest
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data:/var/www/html/storage
+    x-runtipi:
+      is_main: true
+      internal_port: 80
+
+x-runtipi:
+  schema_version: 2
