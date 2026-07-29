@@ -1,0 +1,25 @@
+services:
+  home-gallery:
+    image: xemle/home-gallery:latest
+    restart: unless-stopped
+    entrypoint: ["node", "/app/gallery.js"]
+    command: ["run", "server"]
+    environment:
+      - GALLERY_API_SERVER=http://api:3000
+      - GALLERY_API_SERVER_CONCURRENT=1
+      - GALLERY_API_SERVER_TIMEOUT=60
+      - GALLERY_WATCH_POLL_INTERVAL=300
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    x-runtipi:
+      is_main: true
+      internal_port: 3000
+
+  api:
+    image: xemle/home-gallery-api-server:latest
+    restart: unless-stopped
+    environment:
+      - BACKEND=wasm
+
+x-runtipi:
+  schema_version: 2

@@ -1,0 +1,18 @@
+{
+  "name": "Home Gallery",
+  "id": "home-gallery",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8534,
+  "tipi_version": 1,
+  "version": "1.21.0",
+  "categories": ["media"],
+  "short_desc": "Self-hosted open-source web gallery to view your photos and videos with tagging and AI-powered image discovery.",
+  "description": "Self-hosted open-source web gallery to view your photos and videos. Features a mobile-friendly UI, tagging, and AI-powered image discovery. Builds a local index from your existing directory structure — no duplication. One-time thumbnail generation pass, then instant browsing. Uses TensorFlow.js (wasm backend) for lightweight on-device similarity search.",
+  "author": "xemle",
+  "source": "https://github.com/xemle/home-gallery",
+  "supported_architectures": ["arm64", "amd64"],
+  "min_tipi_version": "4.5.0",
+  "form_fields": []
+}

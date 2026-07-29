@@ -1,0 +1,18 @@
+{
+  "name": "PiGallery 2",
+  "id": "pigallery2",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8533,
+  "tipi_version": 1,
+  "version": "3.5.2",
+  "categories": ["media"],
+  "short_desc": "Fast directory-first photo gallery, optimized for low-resource servers. Reads your existing folder structure as-is.",
+  "description": "A fast directory-first photo gallery website, optimized for running on low-resource servers (especially Raspberry Pi). Point it at your photo folder and it shows your directory structure as-is — no database uploads, no ML, no duplication. Generates thumbnails on-the-fly and caches them for instant repeat views. Supports EXIF metadata, timeline view, map with GPX tracks, video playback, and multi-user access control.",
+  "author": "bpatrik",
+  "source": "https://github.com/bpatrik/pigallery2",
+  "supported_architectures": ["arm64", "amd64"],
+  "min_tipi_version": "4.5.0",
+  "form_fields": []
+}

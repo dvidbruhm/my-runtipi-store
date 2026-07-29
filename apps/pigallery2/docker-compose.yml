@@ -1,0 +1,17 @@
+services:
+  pigallery2:
+    image: bpatrik/pigallery2:latest
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ${APP_DATA_DIR}/config:/app/data/config
+      - ${APP_DATA_DIR}/db:/app/data/db
+      - ${APP_DATA_DIR}/images:/app/data/images:ro
+      - ${APP_DATA_DIR}/tmp:/app/data/tmp
+    x-runtipi:
+      is_main: true
+      internal_port: 80
+
+x-runtipi:
+  schema_version: 2
