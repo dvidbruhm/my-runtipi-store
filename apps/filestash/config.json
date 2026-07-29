@@ -1,0 +1,18 @@
+{
+  "name": "Filestash",
+  "id": "filestash",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8535,
+  "tipi_version": 1,
+  "version": "0.4",
+  "categories": ["utilities"],
+  "short_desc": "Universal file manager that works with S3, FTP, SFTP, WebDAV, SMB, and 20+ storage backends.",
+  "description": "A storage-agnostic file manager that works with every storage protocol: FTP, SFTP, S3, SMB, WebDAV, IPFS, and many more. Plugin-driven architecture with support for file previewing (photos, videos, PDFs, office docs), AI-powered search and OCR, sharing links, user authentication, and a workflow engine for file automation. Single Go binary with minimal resource usage.",
+  "author": "mickael-kerjean",
+  "source": "https://github.com/mickael-kerjean/filestash",
+  "supported_architectures": ["arm64", "amd64"],
+  "min_tipi_version": "4.5.0",
+  "form_fields": []
+}

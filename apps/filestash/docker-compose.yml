@@ -1,0 +1,14 @@
+services:
+  filestash:
+    image: machines/filestash:latest
+    restart: unless-stopped
+    environment:
+      - APPLICATION_URL=
+    volumes:
+      - ${APP_DATA_DIR}/state:/app/data/state
+    x-runtipi:
+      is_main: true
+      internal_port: 8334
+
+x-runtipi:
+  schema_version: 2
