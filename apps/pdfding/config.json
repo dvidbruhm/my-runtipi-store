@@ -1,0 +1,26 @@
+{
+  "name": "PdfDing",
+  "id": "pdfding",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8537,
+  "tipi_version": 1,
+  "version": "1.11.0",
+  "categories": ["utilities"],
+  "short_desc": "Self-hosted PDF manager, viewer and editor with highlighting, signatures, tags, and collections.",
+  "description": "A self-hosted PDF manager, viewer and editor. View PDFs seamlessly in the browser with reading position memory. Edit by adding text, highlighting, and drawings. Add signatures and access them on all devices. Organize with workspaces, collections, multi-level tagging, starring, and archiving. Share via links or QR codes. Supports SSO via OIDC, two-factor authentication, Markdown notes, and dark mode. SQLite backend — no external database needed.",
+  "author": "mrmn2",
+  "source": "https://github.com/mrmn2/PdfDing",
+  "supported_architectures": ["arm64", "amd64"],
+  "min_tipi_version": "4.5.0",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Secret Key (Django cryptographic signing)",
+      "min": 50,
+      "required": true,
+      "env_variable": "PDFDING_SECRET_KEY"
+    }
+  ]
+}
