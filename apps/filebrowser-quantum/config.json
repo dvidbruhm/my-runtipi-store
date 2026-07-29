@@ -1,0 +1,18 @@
+{
+  "name": "Filebrowser Quantum",
+  "id": "filebrowser-quantum",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8536,
+  "tipi_version": 1,
+  "version": "2.0.0",
+  "categories": ["utilities"],
+  "short_desc": "Modern self-hosted file manager with indexed real-time search, multiple sources, OIDC/LDAP auth, and rich previews.",
+  "description": "A modern self-hosted web-based file manager. Fork of the original Filebrowser with major upgrades: real-time indexed search as you type, multiple source directories with include/exclude rules, rich thumbnail previews (office docs, video, album art, 3D models), configurable sharing with permissions and expiry, OIDC/LDAP/JWT/proxy authentication, SQLite indexing, WebDAV support, API tokens with Swagger docs, and a beautiful responsive UI with dark mode.",
+  "author": "gtsteffaniak",
+  "source": "https://github.com/gtsteffaniak/filebrowser",
+  "supported_architectures": ["arm64", "amd64"],
+  "min_tipi_version": "4.5.0",
+  "form_fields": []
+}

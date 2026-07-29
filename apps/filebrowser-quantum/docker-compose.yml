@@ -1,0 +1,13 @@
+services:
+  filebrowser-quantum:
+    image: gtstef/filebrowser:stable
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data:/home/filebrowser/data
+      - ${APP_DATA_DIR}/srv:/srv
+    x-runtipi:
+      is_main: true
+      internal_port: 80
+
+x-runtipi:
+  schema_version: 2
