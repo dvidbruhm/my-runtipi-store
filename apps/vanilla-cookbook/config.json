@@ -1,0 +1,18 @@
+{
+  "name": "Vanilla Cookbook",
+  "id": "vanilla-cookbook",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8538,
+  "tipi_version": 1,
+  "version": "1.5.14",
+  "categories": ["utilities"],
+  "short_desc": "Self-hosted recipe manager with smart ingredient parsing, unit conversion, recipe scaling, and URL scraping.",
+  "description": "A self-hosted recipe manager designed to keep things simple. Smart ingredient display with automatic unit conversion (US volumetric to metric/imperial), recipe scaling, nutrition parsing, and recipe scraping from hundreds of sites via URL or bookmarklet. Features include multi-level tagging, shopping list, cooking logs with calendar view, sharing, PWA support, user management with optional OAuth/OIDC, and optional LLM-powered features (recipe generation, translation, semantic search, image analysis). Single container with SQLite — no external database needed.",
+  "author": "jt196",
+  "source": "https://github.com/jt196/vanilla-cookbook",
+  "supported_architectures": ["arm64", "amd64"],
+  "min_tipi_version": "4.5.0",
+  "form_fields": []
+}

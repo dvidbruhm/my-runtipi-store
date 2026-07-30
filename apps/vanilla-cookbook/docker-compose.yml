@@ -1,0 +1,15 @@
+services:
+  vanilla-cookbook:
+    image: jt196/vanilla-cookbook:latest
+    restart: unless-stopped
+    environment:
+      - ORIGIN=http://localhost:3000
+    volumes:
+      - ${APP_DATA_DIR}/db:/app/prisma/db
+      - ${APP_DATA_DIR}/uploads:/app/uploads
+    x-runtipi:
+      is_main: true
+      internal_port: 3000
+
+x-runtipi:
+  schema_version: 2
