@@ -1,0 +1,25 @@
+{
+  "name": "Minidash",
+  "id": "minidash",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8539,
+  "tipi_version": 1,
+  "version": "0.1.0",
+  "categories": ["utilities"],
+  "short_desc": "Minimal, lightweight self-hosted dashboard with status checks, themes, and sections.",
+  "description": "A minimal, lightweight self-hosted homelab dashboard — a single Go binary. Point it at a YAML config and get a clean page of shortcuts with icons, colors, themes, multiple views, optional sections, status checks, and more. Features 4 dashboard views, 11 themes including Catppuccin/Nord/Dracula/Gruvbox, per-link health monitoring with sparkline history, searchable icon picker with Simple Icons/Lucide/Tabler bundled offline, password-gated settings with drag-to-reorder, custom CSS, and hot-reloading config.",
+  "author": "dvidbruhm",
+  "source": "",
+  "supported_architectures": ["arm64", "amd64"],
+  "min_tipi_version": "4.5.0",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "Settings password (gates the Settings page — dashboard is public)",
+      "required": true,
+      "env_variable": "MINIDASH_PASSWORD"
+    }
+  ]
+}

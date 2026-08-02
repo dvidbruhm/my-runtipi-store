@@ -1,0 +1,14 @@
+services:
+  minidash:
+    image: minidash:latest
+    restart: unless-stopped
+    environment:
+      - MINIDASH_PASSWORD=${MINIDASH_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/config:/config
+    x-runtipi:
+      is_main: true
+      internal_port: 8080
+
+x-runtipi:
+  schema_version: 2
