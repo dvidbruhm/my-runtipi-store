@@ -26,10 +26,9 @@ The dashboard is **public** (no login needed to view). The **Settings page** req
 |---|---|
 | `${APP_DATA_DIR}/config` | `config.yaml` (links, sections, appearance) + `status-history.json` |
 
-## Notes
+## CI/CD
 
-- **Docker image is built locally** on the server (`minidash:latest`). If the image is deleted (e.g., `docker system prune`), rebuild it from the source project before reinstalling.
-- Single Go binary, ~7 MB image. Extremely lightweight.
+Every push to the `master` branch on GitHub triggers an automatic rebuild. The new image is published to GHCR and auto-pulled by the server within 5 minutes.
 
 ## Tech stack
 

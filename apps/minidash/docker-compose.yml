@@ -1,6 +1,6 @@
 services:
   minidash:
-    image: minidash:latest
+    image: ghcr.io/dvidbruhm/minidash:latest
     restart: unless-stopped
     environment:
       - MINIDASH_PASSWORD=${MINIDASH_PASSWORD}
