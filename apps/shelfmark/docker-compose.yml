@@ -1,0 +1,17 @@
+services:
+  shelfmark:
+    image: ghcr.io/calibrain/shelfmark:latest
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Toronto
+    volumes:
+      - ${APP_DATA_DIR}/config:/config
+      - ${APP_DATA_DIR}/books:/books
+    x-runtipi:
+      is_main: true
+      internal_port: 8084
+
+x-runtipi:
+  schema_version: 2

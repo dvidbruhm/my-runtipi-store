@@ -1,0 +1,18 @@
+{
+  "name": "Shelfmark",
+  "id": "shelfmark",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8540,
+  "tipi_version": 1,
+  "version": "1.3.5",
+  "categories": ["books"],
+  "short_desc": "Self-hosted book and audiobook search tool with multi-source search, request system, and library integration.",
+  "description": "A self-hosted web interface for searching and requesting books and audiobooks across multiple sources. Configure web, torrent, usenet, and IRC sources. Search via metadata providers (Hardcover, Open Library, Google Books) for rich discovery. Multi-user support with a built-in request system. Integrates with Prowlarr, qBittorrent, SABnzbd, Calibre, Calibre-Web, Audiobookshelf, and Grimmory for automatic imports. Supports OIDC, proxy auth, and multi-user roles.",
+  "author": "calibrain",
+  "source": "https://github.com/calibrain/shelfmark",
+  "supported_architectures": ["arm64", "amd64"],
+  "min_tipi_version": "4.5.0",
+  "form_fields": []
+}
