@@ -1,0 +1,12 @@
+services:
+  qui:
+    image: ghcr.io/autobrr/qui:latest
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/config:/config
+    x-runtipi:
+      is_main: true
+      internal_port: 7476
+
+x-runtipi:
+  schema_version: 2
