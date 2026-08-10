@@ -29,19 +29,19 @@
     {
       "type": "text",
       "label": "Public base URL (used in password-reset emails, e.g. https://recipes.example.com)",
-      "required": true,
+      "required": false,
       "env_variable": "APP_BASE_URL"
     },
     {
       "type": "text",
       "label": "SMTP server hostname (for password-reset emails)",
-      "required": true,
+      "required": false,
       "env_variable": "SMTP_HOST"
     },
     {
       "type": "text",
       "label": "SMTP From address (e.g. 'Recipe Manager <noreply@example.com>')",
-      "required": true,
+      "required": false,
       "env_variable": "SMTP_FROM"
     },
     {
