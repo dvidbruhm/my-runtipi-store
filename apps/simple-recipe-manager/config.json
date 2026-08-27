@@ -10,8 +10,8 @@
   "categories": [
     "utilities"
   ],
-  "version": "2.0.0+52fc0a0",
-  "tipi_version": 8,
+  "version": "2.0.0+10b9f68",
+  "tipi_version": 9,
   "exposable": true,
   "dynamic_config": true,
   "supported_architectures": [
