@@ -1,0 +1,41 @@
+{
+  "name": "Invio",
+  "id": "invio",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8542,
+  "tipi_version": 1,
+  "version": "2.2.0",
+  "categories": ["finance"],
+  "short_desc": "Self-hosted invoicing without the bloat — create invoices, share a link, get paid.",
+  "description": "A free, open source, self-hosted invoicing app for freelancers and small businesses. Create invoices and quotes, manage clients and products, and share secure links your clients can open without an account. Track payment status, generate and email branded PDFs, and store all data in a local SQLite database — no external service required. Includes a dashboard with revenue and outstanding-balance charts, multi-currency support, tax and discount handling, automatic invoice numbering, optional SMTP email delivery, user management, and optional OIDC/SSO login via Authentik or any other OIDC provider.",
+  "author": "kittendevv",
+  "source": "https://github.com/kittendevv/Invio",
+  "website": "https://invio.dev",
+  "supported_architectures": ["arm64", "amd64"],
+  "min_tipi_version": "4.5.0",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Admin username",
+      "required": true,
+      "default": "admin",
+      "env_variable": "INVIO_ADMIN_USER"
+    },
+    {
+      "type": "password",
+      "label": "Admin password",
+      "required": true,
+      "env_variable": "INVIO_ADMIN_PASS"
+    },
+    {
+      "type": "random",
+      "label": "JWT secret (signs login tokens)",
+      "min": 32,
+      "required": true,
+      "encoding": "base64",
+      "env_variable": "INVIO_JWT_SECRET"
+    }
+  ]
+}
