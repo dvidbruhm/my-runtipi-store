@@ -28,11 +28,11 @@ Self-hosted invoicing without the bloat. Create an invoice, share a link, get pa
 | `INVIO_ADMIN_PASS` | — | Admin password |
 | `INVIO_JWT_SECRET` | auto-generated | Signs session tokens (random) |
 | `DATABASE_PATH` | `/app/data/invio.db` | SQLite database location |
-| `ORIGIN` | `http://localhost:8542` | External origin — **update this** if exposing via a domain |
+| `ORIGIN` | auto-detected | External origin, set automatically from Runtipi's `APP_PROTOCOL`/`APP_DOMAIN`. **Required for logins** — SvelteKit rejects form posts whose origin doesn't match |
 
 Optional settings (SMTP for email, OIDC/SSO, rate limiting, demo mode) are documented in the project's [`.env.example`](https://github.com/kittendevv/Invio/blob/main/.env.example) — add them to the app's environment in the Runtipi dashboard if you need them.
 
-> **Note:** To expose Invio behind a domain, set `ORIGIN` to your full URL (e.g. `https://invoices.example.com`) after install, otherwise form submissions will be rejected by CSRF protection.
+> **Note:** `ORIGIN` is derived automatically from Runtipi's `APP_PROTOCOL`/`APP_DOMAIN`, so it follows your install's host and port (and any domain you expose it on). It is what makes the login form work — without a matching origin, Invio returns `403 Cross-site POST form submissions are forbidden`.
 
 ## Data locations
 
