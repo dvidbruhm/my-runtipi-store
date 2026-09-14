@@ -1,0 +1,34 @@
+{
+  "name": "Photoview",
+  "id": "photoview",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8543,
+  "tipi_version": 1,
+  "version": "2.4.0",
+  "categories": ["photography", "media"],
+  "short_desc": "Personal photo and video gallery that reads your existing folders, with RAW support, EXIF parsing, face recognition, and sharing.",
+  "description": "A simple and user-friendly photo gallery made for photographers. Point it at one or more folders on your server and it organises them into albums that mirror your directory structure — no uploads, no duplication. The scanner auto-detects new media and generates thumbnails and web-optimised videos so browsing thousands of high-resolution files stays fast. Features EXIF parsing, RAW file support, automatic face detection and people grouping, map view for GPS-tagged photos, password-protected public sharing of albums and individual media, multi-user accounts with per-user paths, and a built-in media cache. Runs on MariaDB with its own private database container.",
+  "author": "photoview",
+  "source": "https://github.com/photoview/photoview",
+  "website": "https://photoview.github.io",
+  "supported_architectures": ["arm64", "amd64"],
+  "min_tipi_version": "4.5.0",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Database password (MariaDB, for the bundled database container)",
+      "min": 24,
+      "required": true,
+      "env_variable": "PHOTOVIEW_DB_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Database root password (MariaDB, for the bundled database container)",
+      "min": 24,
+      "required": true,
+      "env_variable": "PHOTOVIEW_DB_ROOT_PASSWORD"
+    }
+  ]
+}
