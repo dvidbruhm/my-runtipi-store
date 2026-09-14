@@ -20,26 +20,22 @@ A simple, user-friendly photo gallery made for photographers. Point it at one or
 2. When prompted for the media path, enter `/photos`.
 3. Photoview scans the folder and builds thumbnails. Large libraries take a while on the first pass; subsequent scans only pick up changes.
 
-## Photo library
+## Pointing Photoview at your photos
 
-This app is wired directly to the library on the host's USB drive:
+The app ships reading from `${APP_DATA_DIR}/photos`, which starts out empty — the volume line in `docker-compose.yml` is the fallback. The real library is supplied on this server by a user-config override:
+
+`/root/runtipi/user-config/personal-store/photoview/docker-compose.yml`
 
 ```yaml
-# apps/photoview/docker-compose.yml
 services:
   photoview:
     volumes:
-      - ${APP_DATA_DIR}/storage:/home/photoview/media-cache
-      - /pcloud-backup/Photos:/photos:ro
+      - /mnt/usb-drive/pcloud-backup/Photos:/photos:ro
 ```
 
-`/pcloud-backup/Photos` on the host is mounted read-only at `/photos` inside the container, so Photoview never modifies your originals.
+The override reuses the container path `/photos`, and Docker Compose merges volume entries by that container path, so this **replaces** the app's `${APP_DATA_DIR}/photos` mount rather than adding a second one to the same target. `/mnt/usb-drive/pcloud-backup/Photos` is the library on the USB drive (mounted at `/mnt/usb-drive`) — the same directory `pigallery2` and `home-gallery` are pointed at. The mount is read-only, so Photoview never modifies your originals.
 
-To point it somewhere else, edit that volume line in `apps/photoview/docker-compose.yml`, commit it, and bump `tipi_version` in `apps/photoview/config.json` so Runtipi picks the change up on update. To add a second library, mount it at its own subfolder of `/photos` — a mount cannot be nested inside another mount — and enter the parent `/photos` as the media path.
-
-### Permissions
-
-Photoview runs as uid/gid `999` and reads the library as that user, so the files under `/pcloud-backup/Photos` must be readable by it. If scans come back empty or files are missing while the folder is clearly populated, check the USB mount's permissions on the host, e.g. with `ls -ln /pcloud-backup/Photos` — the mount options (such as `dmask`/`umask`) decide whether other users can read the drive.
+To add a second library, mount it at its own subfolder of `/photos` — a mount cannot be nested inside another mount — and enter the parent `/photos` as the media path.
 
 ## Configuration
 
@@ -47,13 +43,14 @@ Photoview runs as uid/gid `999` and reads the library as that user, so the files
 |---|---|---|
 | `PHOTOVIEW_DB_PASSWORD` | auto-generated | Password for the bundled MariaDB user |
 | `PHOTOVIEW_DB_ROOT_PASSWORD` | auto-generated | Password for the bundled MariaDB root user |
-| `MAPBOX_TOKEN` | unset | Optional — enables the Places/map features. Generate a free token at https://account.mapbox.com/access-tokens/ and add it to the `photoview` service's `environment` in `apps/photoview/docker-compose.yml` |
+| `MAPBOX_TOKEN` | unset | Optional — enables the Places/map features. Generate a free token at https://account.mapbox.com/access-tokens/ and add it to the `photoview` service's `environment` in the user-config override |
 
 ## Data locations
 
 | Path | Content |
 |---|---|
-| `/pcloud-backup/Photos` (host) | Your photo library, mounted read-only at `/photos` |
+| `/mnt/usb-drive/pcloud-backup/Photos` (host) | Your photo library, mounted read-only at `/photos` by the user-config override |
+| `${APP_DATA_DIR}/photos` | Fallback library folder — unused while the override is in place |
 | `${APP_DATA_DIR}/storage` | Media cache — thumbnails and transcoded videos |
 | `${APP_DATA_DIR}/database` | MariaDB data directory (users, albums, metadata) |
 
