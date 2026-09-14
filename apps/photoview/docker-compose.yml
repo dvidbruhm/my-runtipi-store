@@ -18,7 +18,8 @@ services:
       - PHOTOVIEW_MEDIA_CACHE=/home/photoview/media-cache
     volumes:
       - ${APP_DATA_DIR}/storage:/home/photoview/media-cache
-      - ${APP_DATA_DIR}/photos:/photos:ro
+      # Photo library, on the USB drive mounted at /pcloud-backup on the host.
+      - /pcloud-backup/Photos:/photos:ro
     x-runtipi:
       is_main: true
       internal_port: 80
